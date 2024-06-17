@@ -68,6 +68,26 @@ class DoublyLinkedListTest {
     }
 
     @Test
+    void testInsertEmptyList() {
+        // given: an empty list
+        Assertions.assertTrue(list.isEmpty());
+        // when: inserting a new element with any value
+        list.insert(new DoublyLinkedList.Element(42.0));
+        // then: the list contains (only) that element
+        Assertions.assertArrayEquals(new double[]{42.0}, list.asArray());
+    }
+
+    @Test
+    void testInsertDouble() {
+        // given: an empty list
+        Assertions.assertTrue(list.isEmpty());
+        // when: inserting a double value
+        list.insert(42.0);
+        // then: the double value is saved as an element in the list
+        Assertions.assertArrayEquals(new double[]{42.0}, list.asArray());
+    }
+
+    @Test
     void testAppendElementFromOtherList() {
         // give: an empty list and another list with three elements
         Assertions.assertTrue(list.isEmpty());
